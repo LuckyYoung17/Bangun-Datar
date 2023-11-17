@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:testing/package/persegi_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,14 +9,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page" , style: TextStyle(color: Colors.red),),
+        title: Text("Home Page" , style: TextStyle(color: Colors.black),),
         backgroundColor: Colors.red,
       ),
           body: ListView(
             children: [
               Row(
                 children: [
-                  Expanded(child: CustomMenu(imageAsset: "asset/persegi.jpeg",title: "Persegi")),
+                  Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
+                    },
+                      child: CustomMenu(imageAsset: "asset/persegi.jpeg",title: "Persegi"),)),
                   Expanded(child: CustomMenu(imageAsset: "asset/persegi.jpeg",title: "Persegi")),
                 ],
               ),
