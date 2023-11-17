@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:testing/package/lingkaran_page.dart';
 import 'package:testing/package/persegi_page.dart';
+import 'package:testing/package/persegipanjang_page.dart';
+import 'package:testing/package/segitiga_page.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -21,17 +24,27 @@ class HomePage extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
                     },
                       child: CustomMenu(imageAsset: "asset/persegi.jpeg",title: "Persegi"),)),
-                  Expanded(child: CustomMenu(imageAsset: "asset/persegi.jpeg",title: "Persegi")),
+                  Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPanjangPage()));
+                    },
+                      child: CustomMenu(imageAsset: "asset/persegipanjang.jpeg",title: "Persegi Panjang"),)),
                 ],
               ),
               Row(
                 children: [
-                  CustomMenu(imageAsset: "asset/lingkarannew.png",title: "Lingkaran"),
-                  CustomMenu(imageAsset: "asset/lingkarannew.png",title: "Lingkaran"),
+                  Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LingkaranPage()));
+                    },
+                      child: CustomMenu(imageAsset: "asset/lingkarannew.png",title: "Lingkaran"))),
+                  Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SegitigaPage()));
+                    },
+                      child: CustomMenu(imageAsset: "asset/segi3new.png",title: "Segitiga"))),
                 ],
               ),
-              CustomMenu(imageAsset: "asset/persegipanjang.jpeg",title: "Persegi Panjang"),
-              CustomMenu(imageAsset: "asset/segi3new.png",title: "Segitiga"),
       ],
     ),
     );
@@ -54,7 +67,7 @@ class CustomMenu extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
     children: [
-        Image.asset(imageAsset, height: 100),
+        Image.asset(imageAsset, height: 200),
         Text(title, style: TextStyle(color: Colors.white),),
             ]
           )
